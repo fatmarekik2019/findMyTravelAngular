@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterCComponent } from './register-c/register-c.component';
 import { HttpClientModule } from "@angular/common/http";
+import { ProfileComponent } from './dashboard/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from "@angular/common/http";
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    RegisterCComponent
+    RegisterCComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
