@@ -23,7 +23,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-   
 
     console.log( this.registerClient.value);
     this.registerService.registerClient(this.registerClient.value).subscribe( (res: any)=>{

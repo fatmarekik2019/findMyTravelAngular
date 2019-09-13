@@ -9,7 +9,7 @@
               </div>
               <h4>Welcome back!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
-              <form class="pt-3">
+              <form class="pt-3" [formGroup]="login" (ngSubmit)="onClickLogin()">
                 <div class="form-group">
                   <label for="exampleInputEmail">Username</label>
                   <div class="input-group">
@@ -18,9 +18,10 @@
                         <i class="mdi mdi-account-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="text" class="form-control form-control-lg border-left-0" id="" placeholder="Username">
+                    <input type="text" class="form-control form-control-lg border-left-0" id="" placeholder="Username" formControlName="userName" (keyup)="verifUserName($event)">
                   </div>
                 </div>
+                <div *ngIf="result"><p style="color: red;"><i class="fa fa-exclamation-triangle"></i> userName n'existe pas</p></div>
                 <div class="form-group">
                   <label for="exampleInputPassword">Password</label>
                   <div class="input-group">
@@ -29,7 +30,7 @@
                         <i class="mdi mdi-lock-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">
+                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password" formControlName="password">
                   </div>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
@@ -40,7 +41,8 @@
                   <a href="#" class="auth-link text-black">Forgot password?</a>
                 </div>
                 <div class="my-3">
-                  <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">LOGIN</a>
+                    <button type="submit" [disabled]="result" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >LOGIN</button>
+                 
                 </div>
                 <div class="mb-2 d-flex">
                   <button type="button" class="btn btn-facebook auth-form-btn flex-grow mr-1">

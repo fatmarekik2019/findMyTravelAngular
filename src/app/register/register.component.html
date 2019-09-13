@@ -92,8 +92,8 @@
                     <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password" formControlName="password">
                   </div>
                 </div>
-                <div class="mt-3"*ngIf="result">
-                  <button disabled type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >SIGN UP</button>
+                <div class="mt-3">
+                  <button type="submit" [disabled]="!result" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >SIGN UP</button>
                 </div>
                 <!-- <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.html" class="text-primary">Login</a>
                 </div> -->
