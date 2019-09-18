@@ -36,7 +36,88 @@
                                     class="img-lg rounded-circle mb-3 taille" />
                                 <p> {{client.statut}}
                                 </p>
-                                <div class="d-flex justify-content-end">
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-gradient-success" data-toggle="modal"
+                                        data-target="#exampleModal-3">Change password</button>
+                                    <div class="modal fade" id="exampleModal-3" tabindex="-1" role="dialog"
+                                        aria-labelledby="ModalLabel11" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="ModalLabel11">Change password </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form [formGroup]="modifyPassData" (ngSubmit)="modifyPass()">
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="col-form-label">Last
+                                                                password:</label>
+                                                            <input type="password" class="form-control"
+                                                                formControlName="lastPassword"
+                                                                (keyup)="checkLastPassword()">
+                                                            <div *ngIf="!lastPassword && !modifyPassData.controls.lastPassword.errors">
+                                                                <p style="color: red;"><i
+                                                                        class="fa fa-exclamation-triangle"></i>
+                                                                    Wrong password
+                                                                </p>
+                                                            </div>
+                                                            <div *ngIf="modifyPassData.controls.lastPassword.errors">
+
+                                                                <div
+                                                                    *ngIf="modifyPassData.controls.lastPassword.errors.required">
+                                                                    <p style="color: red;"><i
+                                                                            class="fa fa-exclamation-triangle"></i>
+                                                                        Please enter your last password
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <label for="recipient-name" class="col-form-label">New
+                                                                password:</label>
+                                                            <input type="password" class="form-control"
+                                                                formControlName="newPassword"
+                                                                (keyup)="checkPasswordStrength();checkPassword()">
+                                                            <div *ngIf="modifyPassData.controls.newPassword.errors">
+                                                                <p style="color: red;"><i
+                                                                        class="fa fa-exclamation-triangle"></i>
+                                                                    Please enter
+                                                                    your new password superior than 8 caracters
+                                                                </p>
+                                                            </div>
+                                                            <div *ngIf="!modifyPassData.controls.newPassword.errors">
+                                                                <p style="color: green">
+                                                                    <i class="fa fa-exclamation-triangle">
+                                                                        {{currentPasswordStrength}} </i>
+
+                                                                </p>
+                                                            </div>
+                                                            <label for="recipient-name" class="col-form-label">Confirm
+                                                                password:</label>
+                                                            <input type="password" class="form-control"
+                                                                formControlName="confirmPassword"
+                                                                (keyup)="checkPassword()">
+                                                            <div *ngIf="!confirm">
+                                                                <p style="color: red;"><i
+                                                                        class="fa fa-exclamation-triangle"></i> Please
+                                                                    check confirm password
+                                                                </p>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-success"
+                                                                [disabled]="modifyPassData.controls.lastPassword.errors||modifyPassData.controls.confirmPassword.errors||modifyPassData.controls.newPassword.errors||!confirm">Update</button>
+                                                            <button type="button" class="btn btn-light"
+                                                                data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                     <button class="btn btn-gradient-success">Change image</button>
                                 </div>
                             </div>
@@ -97,33 +178,98 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="ModalLabel">New message</h5>
+                                            <h5 class="modal-title" id="ModalLabel">Modify profile</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form [formGroup]="modifyClientData" (ngSubmit)="modifyClient()">
                                                 <div class="form-group">
-                                                    <label for="recipient-name"
-                                                        class="col-form-label">Recipient:</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
+                                                    <label for="recipient-name" class="col-form-label">First
+                                                        Name:</label>
+                                                    <input type="text" class="form-control" formControlName="firstName">
+                                                    <div *ngIf="modifyClientData.controls.firstName.errors">
+                                                        <div
+                                                            *ngIf="modifyClientData.controls.firstName.errors.required">
+                                                            <p style="color: red;"><i
+                                                                    class="fa fa-exclamation-triangle"></i> Please enter
+                                                                your first name
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            *ngIf="modifyClientData.controls.firstName.errors.maxlength">
+                                                            <p style="color: red;"><i
+                                                                    class="fa fa-exclamation-triangle"></i> First name
+                                                                must be under 10 caracters</p>
+                                                        </div>
+                                                        <div
+                                                            *ngIf="modifyClientData.controls.firstName.errors.minlength">
+                                                            <p style="color: red;"><i
+                                                                    class="fa fa-exclamation-triangle"></i> First name
+                                                                must be superior than 3 caracters</p>
+                                                        </div>
+                                                        <div *ngIf="modifyClientData.controls.firstName.errors.pattern">
+                                                            <p style="color: red;"><i
+                                                                    class="fa fa-exclamation-triangle"></i> First name
+                                                                must be alphabetic</p>
+                                                        </div>
+
+                                                    </div>
+                                                    <label for="recipient-name" class="col-form-label">Last
+                                                        name:</label>
+                                                    <input type="text" class="form-control" formControlName="lastName">
+                                                    <div *ngIf="modifyClientData.controls.lastName.errors">
+                                                        <div *ngIf="modifyClientData.controls.lastName.errors.required">
+                                                            <p style="color: red;"><i
+                                                                    class="fa fa-exclamation-triangle"></i> Please enter
+                                                                your last name
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            *ngIf="modifyClientData.controls.lastName.errors.maxlength">
+                                                            <p style="color: red;"><i
+                                                                    class="fa fa-exclamation-triangle"></i> Last name
+                                                                must be under 10 caracters</p>
+                                                        </div>
+                                                        <div
+                                                            *ngIf="modifyClientData.controls.lastName.errors.minlength">
+                                                            <p style="color: red;"><i
+                                                                    class="fa fa-exclamation-triangle"></i> Last name
+                                                                must be superior than 3 caracters</p>
+                                                        </div>
+                                                        <div *ngIf="modifyClientData.controls.lastName.errors.pattern">
+                                                            <p style="color: red;"><i
+                                                                    class="fa fa-exclamation-triangle"></i> Last name
+                                                                must be alphabetic</p>
+                                                        </div>
+
+                                                    </div>
+                                                    <label for="recipient-name" class="col-form-label">Statut:</label>
+                                                    <input type="text" class="form-control" formControlName="statut">
+                                                    <div *ngIf="modifyClientData.controls.statut.errors">
+                                                        <p style="color: red;"><i
+                                                                class="fa fa-exclamation-triangle"></i> Please enter
+                                                            any status between 3 and 30 caracters !
+                                                        </p>
+                                                    </div>
+                                                    <label for="recipient-name" class="col-form-label">Birthday:</label>
+                                                    <input type="date" class="form-control" formControlName="birthday">
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="col-form-label">Message:</label>
-                                                    <textarea class="form-control" id="message-text"></textarea>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-success"
+                                                        [disabled]="modifyClientData.controls.firstName.errors||modifyClientData.controls.lastName.errors||modifyClientData.controls.birthday.errors||modifyClientData.controls.statut.errors">Update</button>
+                                                    <button type="button" class="btn btn-light"
+                                                        data-dismiss="modal">Close</button>
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-success">Send message</button>
-                                            <button type="button" class="btn btn-light"
-                                                data-dismiss="modal">Close</button>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-gradient-primary btn-block"  data-toggle="modal" data-target="#exampleModal-4">Modify your profile</button>
+                            <button class="btn btn-gradient-primary btn-block" data-toggle="modal"
+                                data-target="#exampleModal-4">Modify your profile</button>
                         </div>
 
                     </div>
