@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
+import { ResetPasswordComponent} from './reset-password/reset-password.component';
+import { LoginComponent} from './login/login.component';
+
 
 
 const routes: Routes = [
@@ -14,7 +17,9 @@ const routes: Routes = [
                 component: ProfileComponent
               }
             ]
-  }
+  },
+  { path: "user/confirm-reset/userName/:userName", component : ResetPasswordComponent},
+  { path: "", component : LoginComponent}
 ];
 
 @NgModule({

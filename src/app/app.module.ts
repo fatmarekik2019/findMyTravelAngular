@@ -11,6 +11,8 @@ import { RegisterComponent } from './register/register.component';
 import { RegisterCComponent } from './register-c/register-c.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ProfileComponent } from './dashboard/profile/profile.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
     LoginComponent,
     RegisterComponent,
     RegisterCComponent,
-    ProfileComponent
+    ProfileComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

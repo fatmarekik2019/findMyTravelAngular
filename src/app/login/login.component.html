@@ -38,8 +38,43 @@
                     <label class="form-check-label text-muted">
                       <input type="checkbox" class="form-check-input"> Keep me signed in </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
+                  <a href="#" class="auth-link text-black" data-toggle="modal" data-target="#exampleModal-4">Forgot password?</a>
+    
                 </div>
+                <div class="modal fade" id="exampleModal-4" tabindex="-1" role="dialog"
+                                aria-labelledby="ModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="ModalLabel">Forgot password</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form [formGroup]="forgotPassword" (ngSubmit)="onClickSend()">
+                                                <div class="form-group">
+                                                    <label for="recipient-name"
+                                                        class="col-form-label">userName:</label>
+                                                    <input type="text" class="form-control" id="recipient-name" formControlName="userName" (keyup)="verifUserName($event)">
+                                                </div>
+                                                <div *ngIf="result"><p style="color: red;"><i class="fa fa-exclamation-triangle"></i> userName n'existe pas</p></div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name"
+                                                        class="col-form-label">Email:</label>
+                                                    <input type="text" class="form-control" id="recipient-name" formControlName="email">
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="submit" class="btn btn-success" [disabled] = "!forgotPassword.valid" [disabled]="result">Send</button>
+                                                  <button type="button" class="btn btn-light"
+                                                      data-dismiss="modal">Close</button>
+                                              </div>
+                                            </form>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                 <div class="my-3">
                     <button type="submit" [disabled]="result" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >LOGIN</button>
                  
