@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProfileService } from 'src/app/profile.service';
-import * as JWT from "jwt-decode";
+import { Router } from '@angular/router';
+import { Location } from "@angular/common";
+import { LoginService } from 'src/app/login.service';
+
+// import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
+
+// import { Observable } from 'rxjs/Observable';
+// import { map } from 'rxjs/operators/map';
+
 
 @Component({
   selector: 'app-profile',
@@ -9,19 +17,25 @@ import * as JWT from "jwt-decode";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  decoded:any;
-  userName='';
+
   display = 'none';
   passChangeButton = false;
   currentPasswordStrength = "";
-  confirm=true;
-  lastPassword=false;
+  confirm = true;
+  lastPassword = false;
+  sanitizedUrl: any;
+  file: any;
+  // ref: AngularFireStorageReference;
+  // task: AngularFireUploadTask;
+  // uploadProgress: Observable<number>;
+  // downloadURL: Observable<string>;
+  // uploadState: Observable<string>;
 
   client = {
     id: 0,
     firstName: "",
     lastName: "",
-    image: "url",
+    image: "",
     statut: "",
     birthday: "",
   }
@@ -39,18 +53,19 @@ export class ProfileComponent implements OnInit {
     confirmPassword: new FormControl("", Validators.required)
   });
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private profileService: ProfileService, private loginService: LoginService, private router: Router, private location: Location/*, private afStorage: AngularFireStorage*/) { }
 
   ngOnInit() {
-    let token=localStorage.getItem('token');
-    this.decoded=JWT(token);
-    this.userName=this.decoded.sub;
-    this.profileService.get("xxxxx").subscribe((res: any) => {
+    // let token = localStorage.getItem('token');
+    // this.decoded = JWT(token);
+    // this.userName = this.decoded.sub;
+    this.profileService.get(this.loginService.userName).subscribe((res: any) => {
       this.client.id = res.id;
       this.client.firstName = res.firstName;
       this.client.lastName = res.lastName;
       this.client.statut = res.statut;
       this.client.birthday = res.birthday;
+      this.client.image = res.image;
 
       this.modifyClientData.setValue({
         id: this.client.id,
@@ -74,28 +89,28 @@ export class ProfileComponent implements OnInit {
 
   }
   modifPass() {
-    const data={
-      password:this.modifyPassData.value.newPassword
+    const data = {
+      password: this.modifyPassData.value.newPassword
     }
-    this.profileService.post(data,this.userName).subscribe(res=>{
+    this.profileService.post(data, this.loginService.userName).subscribe(res => {
       console.log(res);
     });
   }
-  checkPassword(){
-    if(this.modifyPassData.value.newPassword!==this.modifyPassData.value.confirmPassword){
-      this.confirm=false;
+  checkPassword() {
+    if (this.modifyPassData.value.newPassword !== this.modifyPassData.value.confirmPassword) {
+      this.confirm = false;
     }
-    else{
-      this.confirm=true;
+    else {
+      this.confirm = true;
 
     }
   }
-  checkLastPassword(){
-    const data2={
-      password:this.modifyPassData.value.lastPassword
+  checkLastPassword() {
+    const data2 = {
+      password: this.modifyPassData.value.lastPassword
     }
-    this.profileService.getConfirmPassword(this.userName,data2).subscribe((res:any)=>{
-      this.lastPassword=res;
+    this.profileService.getConfirmPassword(this.loginService.userName, data2).subscribe((res: any) => {
+      this.lastPassword = res;
     });
   }
   checkPasswordStrength() {
@@ -122,5 +137,26 @@ export class ProfileComponent implements OnInit {
     }
 
     console.log(this.currentPasswordStrength)
+  }
+
+  upload(event) {
+    this.file = event.target.files[0];
+  }
+  confirmUpload() {
+    let formData = new FormData();
+    formData.append("file", this.file);
+    this.profileService.postImage(formData, this.client.id).subscribe(res => {
+      console.log("upload confirm");
+      console.log(res);
+      this.profileService.get(this.loginService.userName).subscribe((res: any) => {
+        this.client.id = res.id;
+        this.client.firstName = res.firstName;
+        this.client.lastName = res.lastName;
+        this.client.statut = res.statut;
+        this.client.birthday = res.birthday;
+        this.client.image = res.image;
+      });
+    });
+
   }
 }

@@ -12,7 +12,47 @@ import { RegisterCComponent } from './register-c/register-c.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ListpublicationComponent } from './dashboard/listpublication/listpublication.component';
+import {FileUploadModule} from "ng2-file-upload";
+import { ThumbnailDirective } from './thumbnail.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
+import { 
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatCommonModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatStepperModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
+ } from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -23,15 +63,52 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     RegisterComponent,
     RegisterCComponent,
     ProfileComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ListpublicationComponent,
+    ThumbnailDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
-   
+    ReactiveFormsModule,
+    FileUploadModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatCommonModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

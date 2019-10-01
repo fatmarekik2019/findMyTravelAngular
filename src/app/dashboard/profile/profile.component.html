@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-12">
                             <div class="border-bottom text-center pb-4">
-                                <img src="../../../assets/images/avatar.png" alt="profile"
+                                <img src="http://localhost:9090/downloadFile/{{client.image}}" alt="profile"
                                     class="img-lg rounded-circle mb-3 taille" />
                                 <p> {{client.statut}}
                                 </p>
@@ -51,14 +51,15 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form [formGroup]="modifyPassData" (ngSubmit)="modifyPass()">
+                                                    <form [formGroup]="modifyPassData" (ngSubmit)="modifPass()">
                                                         <div class="form-group">
                                                             <label for="recipient-name" class="col-form-label">Last
                                                                 password:</label>
                                                             <input type="password" class="form-control"
                                                                 formControlName="lastPassword"
                                                                 (keyup)="checkLastPassword()">
-                                                            <div *ngIf="!lastPassword && !modifyPassData.controls.lastPassword.errors">
+                                                            <div
+                                                                *ngIf="!lastPassword && !modifyPassData.controls.lastPassword.errors">
                                                                 <p style="color: red;"><i
                                                                         class="fa fa-exclamation-triangle"></i>
                                                                     Wrong password
@@ -118,7 +119,31 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-gradient-success">Change image</button>
+
+                                    <button class="btn btn-gradient-success"  data-toggle="modal" data-target="#exampleModal-2">Change image</button>
+                                    <div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog"
+                                        aria-labelledby="ModalLabel11" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="ModalLabel11">Change profile image </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h5 class="card-title">Select a file for upload:</h5>
+                                                    <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success" (click)="confirmUpload()" [disabled]="!file" data-dismiss="modal">Confirm</button>
+                                                    <button type="button" class="btn btn-light"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- <div class="border-bottom py-4">
@@ -271,7 +296,6 @@
                             <button class="btn btn-gradient-primary btn-block" data-toggle="modal"
                                 data-target="#exampleModal-4">Modify your profile</button>
                         </div>
-
                     </div>
                 </div>
             </div>
