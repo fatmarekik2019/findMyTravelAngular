@@ -4,12 +4,58 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './front/home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterCComponent } from './register-c/register-c.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './dashboard/profile/profile.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ListpublicationComponent } from './dashboard/listpublication/listpublication.component';
+import {FileUploadModule} from "ng2-file-upload";
+import { ThumbnailDirective } from './thumbnail.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { 
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatCommonModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatStepperModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
+ } from "@angular/material";
+import { PublicationComponent } from './front/publication/publication.component';
+import { SearchPipe } from './search.pipe';
+import { FrontComponent } from './front/front.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +64,57 @@ import { HttpClientModule } from "@angular/common/http";
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    RegisterCComponent
+    RegisterCComponent,
+    ProfileComponent,
+    ResetPasswordComponent,
+    ListpublicationComponent,
+    ThumbnailDirective,
+    PublicationComponent,
+    SearchPipe,
+    FrontComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FileUploadModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatCommonModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

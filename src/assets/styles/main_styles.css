@@ -1408,7 +1408,7 @@ section
 .offers
 {
 	width: 100%;
-	padding-top: 105px;
+	/* padding-top: 105px; */
 	padding-bottom: 43px;
 	background: #f3f6f9;
 }
