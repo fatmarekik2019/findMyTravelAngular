@@ -9,7 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterCComponent } from './register-c/register-c.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from "@angular/common/http";
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ListpublicationComponent } from './dashboard/listpublication/listpublication.component';

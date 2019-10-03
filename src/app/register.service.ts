@@ -15,4 +15,7 @@ export class RegisterService {
   verifUserName(userName){
     return this._http.get("http://localhost:9091/Client/verifUserName/"+userName);
   }
+  verifUserName(userName){
+    return this._http.get("http://localhost:9090/Client/verifUserName/"+userName);
+  }
 }
