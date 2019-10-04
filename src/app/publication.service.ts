@@ -19,12 +19,12 @@ export class PublicationService {
     return this._http.get("http://localhost:9091/Publication/getAllPublicationById/"+id,{headers: this.header})
   }
   getRecentPublication(){
-    let headers = new HttpHeaders().set('Authorization', 'Bearer '+this.token);
-    return this._http.get("http://localhost:9091/Publication/getRecentPublication", {headers : headers});
+    
+    return this._http.get("http://localhost:9091/Publication/getRecentPublication", {headers : this.header});
   }
   getActivatedPublication(){
-    let headers = new HttpHeaders().set('Authorization', 'Bearer '+this.token);
-    return this._http.get("http://localhost:9091/Publication/getActivatedPublication", {headers : headers});
+    
+    return this._http.get("http://localhost:9091/Publication/getActivatedPublication", {headers : this.header});
   }
 
 }

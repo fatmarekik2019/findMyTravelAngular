@@ -3,6 +3,7 @@ import { LoginService } from '../login.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RegisterService } from '../register.service';
 import { PasswordService } from '../password.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,24 +27,50 @@ export class LoginComponent implements OnInit {
     userName: new FormControl('')
   });
   result: true;
-  datas: any;
-  constructor(private loginService: LoginService, private registerService: RegisterService, private passwordService: PasswordService) { }
+  resultPassword: any;
+  isOpened : any;
+  constructor(private loginService: LoginService, private registerService: RegisterService, private passwordService: PasswordService, private router: Router) { }
 
   ngOnInit() {
+  
   }
+  onClickCreate(){
+    if(this.isOpened != true)
+    {
+      this.isOpened = true;
+    }
+    else{
+      this.isOpened = false
+    }
+  }
+   
 
   onClickLogin() {
+    
+    
     this.loginService.login(this.login.value).subscribe((res: any) => {
-      console.log(res);
-      localStorage.setItem('token', res.token);
-      this.loginService.userName = this.loginService.decodeToken();
-    });
+     console.log(res);
+    localStorage.setItem('token', res.token);
+    this.loginService.userName = this.loginService.decodeToken();
+    this.router.navigate(['/home']);
+      
+     });
+
   }
 
   verifUserName(e) {
     this.registerService.verifUserName(e.target.value).subscribe((res: any) => {
-
+      console.log(this.login.value);
       this.result = res;
+      console.log(res)
+    });
+  }
+
+  verifPassword(e){
+    this.passwordService.checkPassword(this.login.value.userName, this.login.value).subscribe((res: any)=>{
+      this.resultPassword = res;
+      console.log(this.login.value);
+      console.log(res);
     });
   }
 

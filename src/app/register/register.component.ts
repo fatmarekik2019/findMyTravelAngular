@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     birthday: new FormControl('1900-01-01'),
     password: new FormControl('', [Validators.minLength(8), Validators.required])
   });
-  result = true;
+  result = false;
   currentPasswordStrength : any;
   constructor(private registerService: RegisterService) { }
 

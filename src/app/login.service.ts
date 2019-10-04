@@ -16,8 +16,13 @@ export class LoginService {
     return this._http.post("http://localhost:9091/user/login",data, {headers: header});
   }
   decodeToken() {
-    let token = localStorage.getItem('token');
-    return JWT(token)['sub'];
+    if(localStorage.getItem('token')) {
+      let token = localStorage.getItem('token');
+      return JWT(token)['sub'];  
+    } else {
+      return null;
+    }
+    
   }
 
 }

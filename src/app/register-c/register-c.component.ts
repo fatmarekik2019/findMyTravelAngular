@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RegisterCompanyService } from '../register-company.service';
 import { RegisterService } from '../register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-c',
@@ -20,10 +21,10 @@ export class RegisterCComponent implements OnInit {
       userName: new FormControl('', [Validators.minLength(3), Validators.maxLength(10), Validators.required])
   });
   currentPasswordStrength : any;
-  result = true;
+  result = false;
   
 
-  constructor(private registerCompanyService: RegisterCompanyService, private registerService: RegisterService) { }
+  constructor(private registerCompanyService: RegisterCompanyService, private registerService: RegisterService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -40,8 +41,9 @@ export class RegisterCComponent implements OnInit {
 
   registerCompany(){
     // console.log(this.registerCompanyData.value)
-    this.registerCompanyService.post(this.registerCompanyData.value).subscribe(res=>{
+    this.registerCompanyService.post(this.registerCompanyData.value).subscribe((res : any)=>{
       console.log(res);
+      this.router.navigate(['/login']);
     });
   }
   checkPasswordStrength() {
@@ -68,6 +70,7 @@ export class RegisterCComponent implements OnInit {
     }
 
     console.log(this.currentPasswordStrength)
+    console.log(this.registerCompanyData.value);
   }
 
 }

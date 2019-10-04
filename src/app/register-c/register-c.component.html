@@ -75,12 +75,33 @@
                       </span>
                     </div>
                     <!-- <input type="text" class="form-control form-control-lg border-left-0" placeholder="City" formControlName="city"> -->
-                    <select class="form-controlform-control-lg border-left-0" placeholder="City" formControlName="city" required>
+                    <select class="form-control form-control-lg border-left-0" placeholder="City" formControlName="city" required>
                         <option>Ariana</option>
                         <option>Beja</option>
                         <option>Ben Arous</option>
                         <option>Bizerte</option>
-                      </select>
+                        <option>Gabes</option>
+                        <option>Gafsa</option>
+                        <option>Jendouba</option>
+                        <option>Kairouane</option>
+                        <option>Kasserine</option>
+                        <option>kébeli</option>
+                        <option>Le Kef</option>
+                        <option>Mahdia</option>
+                        <option>La Manouba</option>
+                        <option>Médenine</option>
+                        <option>Monastir</option>
+                        <option>Nabeul</option>
+                        <option>Sfax</option>
+                        <option>Sidi Bouzid</option>
+                        <option>Siliana</option>
+                        <option>Sousse</option>
+                        <option>Tataouine</option>
+                        <option>Touzeur</option>
+                        <option>Tunis</option>
+                        <option>Zaghouane</option>
+                                          
+                         </select>
                   </div>
                 </div>
                 <div *ngIf="registerCompanyData.hasError('required','city')">
@@ -150,7 +171,7 @@
                     <input type="text" class="form-control form-control-lg border-left-0" placeholder="Username" formControlName="userName" (keyup)="verifUserName($event)"required>
                   </div>
                 </div>
-                <div *ngIf="!result">
+                <div *ngIf="result">
                     <p style="color: red;"><i class="fa fa-exclamation-triangle"></i> userName existant déjà</p>
                   </div>
                   <div *ngIf="registerCompanyData.hasError('required','userName')">
@@ -175,7 +196,7 @@
                         <i class="mdi mdi-lock-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password" formControlName="password" required>
+                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password" formControlName="password" (keyup)="checkPasswordStrength()" required>
                   </div>
                 </div>
                 <div *ngIf="registerCompanyData.hasError('required', 'password')">
@@ -194,15 +215,15 @@
                 </div>
                 <div *ngIf="!registerCompanyData.hasError('minlength', 'password')">
                     <p style="color: green">
-                        <i class="fa fa-exclamation-triangle">
-                            {{currentPasswordStrength}} </i>
+                        
+                            {{currentPasswordStrength}} 
   
                     </p>
                 </div>
                 <div class="mt-3">
-                  <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" type="submit" [disabled]="!result || (!registerCompanyData.valid)" [routerLink]="['/home']" >SIGN UP</button>
+                  <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" type="submit" [disabled]="result || (!registerCompanyData.valid)" >SIGN UP</button>
                 </div>
-                <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.html" class="text-primary">Login</a>
+                <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="#" class="text-primary">Login</a>
                 </div>
               </form>
             </div>
