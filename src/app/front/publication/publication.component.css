@@ -67,9 +67,8 @@
 	height: 57px;
 	font-size: 28px;
 	font-weight: 700;
-	color: #FFFFFF;
+	/* color: #fa9e1b; */
 	line-height: 57px;
-	background: #fa9e1b;
 	vertical-align: middle;
 	border-radius: 45%;
 	-webkit-transform: translateY(-4px);

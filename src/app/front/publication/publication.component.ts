@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { PublicationService } from '../../publication.service';
 import { SearchPipe } from 'src/app/search.pipe';
+import { ProfileService } from 'src/app/profile.service';
+import * as jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-publication',
@@ -9,45 +11,78 @@ import { SearchPipe } from 'src/app/search.pipe';
 })
 export class PublicationComponent implements OnInit {
 
-  
-  jsonObject = {destination: '', minPrice: null, maxPrice: null, duration: null};
-  result : any;
-  filterResult : any;
-  date : Date;
-  Modal : any;
+
+  jsonObject = { destination: '', minPrice: null, maxPrice: null, duration: null };
+  result: any;
+  filterResult: any;
+  publication: any;
   addressSearch: any;
-  costSearchMin:any;
-  costSearchMax:any;
-  durationSearch : any;
-  
-  constructor(private publicationService: PublicationService) { }
+  costSearchMin: any;
+  costSearchMax: any;
+  durationSearch: any;
+  clientId: any;
+  listeVote: any = [];
+
+
+  constructor(private publicationService: PublicationService, private profileService: ProfileService) { }
 
   ngOnInit() {
-    this.publicationService.getActivatedPublication().subscribe((res : any)=>
-    {
-      
-console.log(res)
-      res.forEach(element => {
-
-        this.date = new Date(element.createdDate.slice(0, 10));
-        let day = this.date.getDate()
-        let month = this.date.getMonth()+1;
-        let year = this.date.getFullYear();
-        let time = element.createdDate.slice(11, 16)
-        element.createdDate = day+'/'+month+'/'+year+' at '+time;
-        
+    let decodedToken = localStorage.getItem('token');
+    let userName = jwt_decode(decodedToken)['sub'];
+    this.profileService.get(userName).subscribe((res: any) => {
+      this.clientId = res.id;
+      console.log(this.clientId);
+      this.publicationService.getListVote(this.clientId).subscribe((res2: any) => {
+        this.listeVote = res2;
       });
-      
+    });
+
+    this.publicationService.getActivatedPublication().subscribe((res: any) => {
+
+      console.log(res)
       this.result = res;
       this.filterResult = res;
       console.log(this.result);
     });
+    
+    
+
   }
+ 
+
   filterList(key, value) {
     this.jsonObject[key] = value;
     console.log(this.jsonObject)
     const p = new SearchPipe();
     this.filterResult = p.transform(this.result, this.jsonObject)
-  } 
-      
+  }
+  onClickVote(item) {
+
+    let data = {
+
+    };
+
+    this.publicationService.votePublication(data, this.clientId, item.id).subscribe((res: any) => {
+      console.log( res)
+      this.publicationService.getListVote(this.clientId).subscribe((res2: any) => {
+        this.listeVote = res2;
+        this.isVote(item);
+      });
+
+    })
+   
+
+
+  }
+  
+  isVote(item) {
+    if(this.listeVote.includes(item.id)) {
+      return true;
+    } else {
+      return false;
+    }
+
+    
+  }
+
 }

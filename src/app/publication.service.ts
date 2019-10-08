@@ -26,5 +26,11 @@ export class PublicationService {
     
     return this._http.get("http://localhost:9091/Publication/getActivatedPublication", {headers : this.header});
   }
+  votePublication(data, clientId, publicationId){
+    return this._http.post("http://localhost:9091/Vote/votePublication/"+clientId+"/"+publicationId, data,{headers: this.header})
+  }
+  getListVote(clientId){
+    return this._http.get("http://localhost:9091/Vote/getListVote/"+clientId,{headers: this.header})
+  }
 
 }
