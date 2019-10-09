@@ -56,14 +56,20 @@
 }
 
 }
+@media screen and (max-width: 1125px){
+	.intro {
+		padding-top: 200px;
+	}
+}
 @media screen and (max-width : 992px){
     .modal-title {
         line-height: 50px;
         text-align: center;
-    }
-    /* .offers_image_background{
-        height: 200px;
-    } */
+	}
+	.intro {
+		padding-top: 150px;
+	}
+    
     .publication{
         height: 500px;
         

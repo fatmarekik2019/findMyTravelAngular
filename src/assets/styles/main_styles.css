@@ -1222,10 +1222,10 @@ section
 	-o-transform: translateX(-50%);
 	transform: translateX(-50%);
 	width: auto;
-	padding-left: 39px;
-	padding-right: 39px;
+	
+	padding: 5px 39px;
 	white-space: nowrap;
-	font-size: 13px;
+	font-size: 25px;
 	font-weight: 400;
 	color: #FFFFFF;
 	line-height: 27px;
@@ -1256,7 +1256,7 @@ section
 }
 .intro_price
 {
-	font-size: 14px;
+	font-size: 20px;
 	font-weight: 400;
 	color: #FFFFFF;
 	margin-top: -4px;

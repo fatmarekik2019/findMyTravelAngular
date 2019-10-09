@@ -32,5 +32,11 @@ export class PublicationService {
   getListVote(clientId){
     return this._http.get("http://localhost:9091/Vote/getListVote/"+clientId,{headers: this.header})
   }
+  countVote(publicationId){
+    return this._http.get("http://localhost:9091/Vote/countVote/"+publicationId,{headers: this.header})
+  }
+  getPublicationMostVoted(){
+    return this._http.get("http://localhost:9091/Vote/getPublicationMostVoted",{headers: this.header})
+  }
 
 }
