@@ -1,0 +1,57 @@
+<div class="row grid-margin" *ngFor="let cursus of listCursus">
+    <div class="col-lg-12">
+        <div class="card" style="border: solid 0.5px grey">
+            <div class="card-body">
+
+                <div class=" row">
+                    <h4 class="col-4 card-title">{{cursus.title}}</h4>
+                    <div class="col-auto ml-auto mt-2">
+                        <div class="onoffswitch mt-0 ">
+                            <input type="checkbox" class="onoffswitch-checkbox" id={{cursus.id}}>
+                            <label class="onoffswitch-label" for={{cursus.id}}>
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-auto">
+
+                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-icon mt-2">
+
+                            <i class="mdi mdi-settings-outline"></i>
+                        </button>
+                        <button type="button" class="btn btn-inverse-primary btn-rounded btn-icon mt-2 ml-1"
+                            (click)="showSwal(cursus)">
+                            <i class="mdi mdi-delete-forever-outline"></i>
+                        </button>
+
+                    </div>
+                </div>
+
+                <div id="lightgallery" class="row lightGallery">
+                    <div *ngFor="let publication of cursus.listPublication">
+                        <div *ngFor="let image of publication.listImage">
+                            <img style=" width: 200px !important;
+                            height: 200px !important;" src="http://localhost:9090/downloadFile/{{image.link}}"
+                                alt="image small">
+                        </div>
+                    </div>
+                </div>
+                <p class="card-text row">
+                    <i class="col-auto mdi mdi-airplane-takeoff"></i>Departure:
+                    {{cursus.departDate | date:'dd MMM yyyy'}}
+                    <i class="col-auto mdi mdi-airplane-landing"></i>Arrival: {{cursus.returnDate | date:'dd MMM yyyy'}}
+                </p>
+                <p class="card-text row"><i class="col-auto mdi mdi-weight"></i>Price: {{cursus.price | number:'.3'}}
+                    TND </p>
+
+                <div class="card card-inverse-primary row">
+                    <div class="card-body">
+                        <p class="card-text">{{cursus.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

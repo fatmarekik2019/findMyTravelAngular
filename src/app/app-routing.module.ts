@@ -6,6 +6,9 @@ import { ResetPasswordComponent} from './reset-password/reset-password.component
 import { LoginComponent} from './login/login.component';
 import { ListpublicationComponent } from './dashboard/listpublication/listpublication.component';
 import { RegisterComponent } from './register/register.component';
+import { CompanyprofileComponent } from './Dashboard/companyprofile/companyprofile.component';
+import { AddcursusComponent } from './dashboard/addcursus/addcursus.component';
+import { ListCursusComponent } from './Dashboard/list-cursus/list-cursus.component';
 import { FrontComponent } from './front/front.component';
 import { HomeComponent } from './front/home/home.component';
 import { PublicationComponent } from './front/publication/publication.component';
@@ -15,6 +18,7 @@ import { RegisterCComponent } from './register-c/register-c.component';
 
 
 const routes: Routes = [
+  { path: "", component : LoginComponent},
   {
     path:"Dashboard", 
     component: DashboardComponent, 
@@ -26,6 +30,18 @@ const routes: Routes = [
               {
                 path:"List",
                 component: ListpublicationComponent
+              },
+              {
+                path:"CompanyProfile",
+                component: CompanyprofileComponent
+              },
+              {
+                path:"AddCursus",
+                component: AddcursusComponent
+              },
+              {
+                path:"ListCursus",
+                component : ListCursusComponent
               }
             ]
   },

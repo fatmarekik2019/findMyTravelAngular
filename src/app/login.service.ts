@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import * as JWT from "jwt-decode";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   userName: any;
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient, private router:Router) {
     this.userName = this.decodeToken();
    }
 
