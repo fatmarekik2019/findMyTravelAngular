@@ -56,6 +56,7 @@ import {
 import { PublicationComponent } from './front/publication/publication.component';
 import { SearchPipe } from './search.pipe';
 import { FrontComponent } from './front/front.component';
+import { CursusComponent } from './front/cursus/cursus.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { FrontComponent } from './front/front.component';
     ThumbnailDirective,
     PublicationComponent,
     SearchPipe,
-    FrontComponent
+    FrontComponent,
+    CursusComponent
   ],
   imports: [
     BrowserModule,
