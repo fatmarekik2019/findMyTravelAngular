@@ -1505,24 +1505,7 @@ section
 	color: #929191;
 	margin-top: 1px;
 }
-.offer_reviews_rating
-{
-	display: inline-block;
-	width: 62px;
-	height: 57px;
-	font-size: 28px;
-	font-weight: 700;
-	color: #FFFFFF;
-	line-height: 57px;
-	background: #fa9e1b;
-	vertical-align: middle;
-	border-radius: 45%;
-	-webkit-transform: translateY(-4px);
-	-moz-transform: translateY(-4px);
-	-ms-transform: translateY(-4px);
-	-o-transform: translateY(-4px);
-	transform: translateY(-4px);
-}
+
 
 /*********************************
 10. Footer

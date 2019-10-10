@@ -14,18 +14,14 @@ export class LoginService {
 
   login(data){
     let header = new HttpHeaders().set('Content-Type', 'application/json')
-    return this._http.post("http://localhost:9090/user/login",data, {headers: header});
+    return this._http.post("http://localhost:9091/user/login",data, {headers: header});
   }
   decodeToken() {
-    
-    if(localStorage.getItem('token')!=null){
+    if(localStorage.getItem('token')) {
       let token = localStorage.getItem('token');
-      if(Date.now() >= (JWT(token)['exp']* 1000)){
-        this.router.navigate(["/"]);
-      }
-      return JWT(token)['sub'];
-    }else{
-      this.router.navigate(["/"]);
+      return JWT(token)['sub'];  
+    } else {
+      return null;
     }
     
   }

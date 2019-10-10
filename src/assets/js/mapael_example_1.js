@@ -8725,13 +8725,13 @@ $(function() {
             content: "<span style=\"font-weight:bold;\">Sainte-Luce (97227)</span><br />Population : 10131"
           }
         },
-        "town-59090": {
+        "town-59091": {
           value: "10130",
           latitude: 50.701666666667,
           longitude: 3.0933333333333,
           href: "#",
           tooltip: {
-            content: "<span style=\"font-weight:bold;\">Bondues (59090)</span><br />Population : 10130"
+            content: "<span style=\"font-weight:bold;\">Bondues (59091)</span><br />Population : 10130"
           }
         },
         "town-62587": {

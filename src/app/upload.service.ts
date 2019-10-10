@@ -11,7 +11,7 @@ export class UploadService {
 
   uploadMultiple(data) {
     let header = new HttpHeaders().set('Authorization', 'Bearer '+ localStorage.getItem('token'));
-   return this._http.post('http://localhost:9090/uploadMultipleFiles',data,{headers: header});
+   return this._http.post('http://localhost:9091/uploadMultipleFiles',data,{headers: header});
   }
   
 

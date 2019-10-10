@@ -7,9 +7,12 @@ import { LoginComponent} from './login/login.component';
 import { ListpublicationComponent } from './dashboard/listpublication/listpublication.component';
 import { RegisterComponent } from './register/register.component';
 import { CompanyprofileComponent } from './Dashboard/companyprofile/companyprofile.component';
-import { RegisterCComponent } from './register-c/register-c.component';
 import { AddcursusComponent } from './dashboard/addcursus/addcursus.component';
 import { ListCursusComponent } from './Dashboard/list-cursus/list-cursus.component';
+import { FrontComponent } from './front/front.component';
+import { HomeComponent } from './front/home/home.component';
+import { PublicationComponent } from './front/publication/publication.component';
+import { RegisterCComponent } from './register-c/register-c.component';
 
 
 
@@ -42,8 +45,14 @@ const routes: Routes = [
             ]
   },
   { path: "user/confirm-reset/userName/:userName", component : ResetPasswordComponent},
-  { path: "RegisterCompany", component : RegisterCComponent},
-  { path: "Register", component : RegisterComponent}
+  { path: "login", component : LoginComponent},
+  { path: "registerClient", component : RegisterComponent},
+  { path : "registerCompany", component : RegisterCComponent},
+  {path: "", component: FrontComponent,
+children:[
+  {path: "home", component: HomeComponent},
+  {path: "publications", component:PublicationComponent}
+]}
 ];
 
 @NgModule({

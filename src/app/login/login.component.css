@@ -1213,3 +1213,19 @@
       .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus {
         -webkit-box-shadow: 0 0 0 0.2rem rgba(28, 182, 159, 0.5);
         box-shadow: 0 0 0 0.2rem rgba(28, 182, 159, 0.5); }
+
+.create{
+  width: 200px;
+  height: 100px;
+  box-shadow: 5px 5px 5px grey;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.create div {
+  padding: 10px;
+  margin: auto;
+}
+.text-primary:hover{
+  pointer-events: stroke;
+}

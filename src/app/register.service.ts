@@ -10,9 +10,10 @@ export class RegisterService {
 
   registerClient(data){
     console.log(data);
-    return this._http.post("http://localhost:9090/Client/addClient",data);
+    return this._http.post("http://localhost:9091/Client/addClient",data);
   }
   verifUserName(userName){
-    return this._http.get("http://localhost:9090/Client/verifUserName/"+userName);
+    return this._http.get("http://localhost:9091/Client/verifUserName/"+userName);
   }
+  
 }

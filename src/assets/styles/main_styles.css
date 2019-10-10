@@ -1153,7 +1153,7 @@ section
 .intro
 {
 	width: 100%;
-	padding-top: 100px;
+	padding-top: 250px;
 	padding-bottom: 105px;
 }
 .intro_title
@@ -1222,10 +1222,10 @@ section
 	-o-transform: translateX(-50%);
 	transform: translateX(-50%);
 	width: auto;
-	padding-left: 39px;
-	padding-right: 39px;
+	
+	padding: 5px 39px;
 	white-space: nowrap;
-	font-size: 13px;
+	font-size: 25px;
 	font-weight: 400;
 	color: #FFFFFF;
 	line-height: 27px;
@@ -1256,7 +1256,7 @@ section
 }
 .intro_price
 {
-	font-size: 14px;
+	font-size: 20px;
 	font-weight: 400;
 	color: #FFFFFF;
 	margin-top: -4px;
@@ -1280,7 +1280,6 @@ section
 .rating_3 i:first-child{color: #ffeb8d;}
 .rating_3 i:nth-child(2){color: #fed46b;}
 .rating_3 i:nth-child(3){color: #fbb53d;}
-.rating_4 i:first-child{color: #ffeb8d;}
 .rating_4 i:nth-child(2){color: #fed46b;}
 .rating_4 i:nth-child(3){color: #fbb53d;}
 .rating_4 i:nth-child(4){color: #fa9e1b;}
@@ -1408,7 +1407,7 @@ section
 .offers
 {
 	width: 100%;
-	padding-top: 105px;
+	/* padding-top: 105px; */
 	padding-bottom: 43px;
 	background: #f3f6f9;
 }

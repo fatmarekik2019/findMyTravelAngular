@@ -5,7 +5,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './front/home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -58,6 +58,9 @@ import {
 import { CompanyprofileComponent } from './Dashboard/companyprofile/companyprofile.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListCursusComponent } from './Dashboard/list-cursus/list-cursus.component';
+import { PublicationComponent } from './front/publication/publication.component';
+import { SearchPipe } from './search.pipe';
+import { FrontComponent } from './front/front.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +76,10 @@ import { ListCursusComponent } from './Dashboard/list-cursus/list-cursus.compone
     ThumbnailDirective,
     CompanyprofileComponent,
     AddcursusComponent,
-    ListCursusComponent
+    ListCursusComponent,
+    PublicationComponent,
+    SearchPipe,
+    FrontComponent
   ],
   imports: [
     BrowserModule,

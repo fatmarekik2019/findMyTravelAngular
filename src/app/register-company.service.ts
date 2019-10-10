@@ -9,6 +9,6 @@ export class RegisterCompanyService {
   constructor(private _http: HttpClient) { }
 
   post(data){
-    return this._http.post("http://localhost:9090/Company/addCompany",data);
+    return this._http.post("http://localhost:9091/Company/addCompany",data);
   }
 }
