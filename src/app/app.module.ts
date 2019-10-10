@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,12 +14,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ListpublicationComponent } from './dashboard/listpublication/listpublication.component';
-import {FileUploadModule} from "ng2-file-upload";
+import { FileUploadModule } from "ng2-file-upload";
 import { ThumbnailDirective } from './thumbnail.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AddcursusComponent } from "./dashboard/addcursus/addcursus.component";
 
-import { 
+import {
   MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
@@ -52,7 +54,10 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule
- } from "@angular/material";
+} from "@angular/material";
+import { CompanyprofileComponent } from './Dashboard/companyprofile/companyprofile.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ListCursusComponent } from './Dashboard/list-cursus/list-cursus.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +70,10 @@ import {
     ProfileComponent,
     ResetPasswordComponent,
     ListpublicationComponent,
-    ThumbnailDirective
+    ThumbnailDirective,
+    CompanyprofileComponent,
+    AddcursusComponent,
+    ListCursusComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +116,10 @@ import {
     MatPaginatorModule,
     MatSortModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    SweetAlert2Module,
+    Ng2SearchPipeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
