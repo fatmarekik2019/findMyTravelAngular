@@ -9,12 +9,15 @@ export class CursusService {
   constructor(private _http: HttpClient) { }
 
   addCursus(id,data){
-    return this._http.post("http://localhost:9090/Cursus/addCursus/"+id,data,{headers: this.header});
+    return this._http.post("http://localhost:9091/Cursus/addCursus/"+id,data,{headers: this.header});
   }
   getAllCursus(id){
-    return this._http.get("http://localhost:9090/Cursus/getAllCursus/"+id,{headers: this.header})
+    return this._http.get("http://localhost:9091/Cursus/getAllCursus/"+id,{headers: this.header})
   }
   deleteCursus(cursus){
-    return this._http.get("http://localhost:9090/Cursus/delete/"+cursus.id,{headers: this.header})
+    return this._http.get("http://localhost:9091/Cursus/delete/"+cursus.id,{headers: this.header})
+  }
+  getActivatedCursus(){
+    return this._http.get("http://localhost:9091/Cursus/getActivatedCursus")
   }
 }

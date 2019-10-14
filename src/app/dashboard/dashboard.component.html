@@ -32,7 +32,7 @@
                 <li class="nav-item nav-profile dropdown">
                         <a href="#" class="nav-link">
                                 <div class="nav-profile-img">
-                                        <img src="http://localhost:9090/downloadFile/{{user.image}}" alt="image">
+                                        <img src="http://localhost:9091/downloadFile/{{user.image}}" alt="image">
                                         <span class="availability-status online"></span>
                                   <!--change to offline or busy as needed-->
                                 </div>
@@ -80,19 +80,19 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
                     <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" [routerLink]="['/']">
                                 <span class="menu-title">Home</span>
                                 <i class="fa fa-home menu-icon"></i>
                             </a>
                         </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" routerLink="/Dashboard">
+                    <a class="nav-link"  routerLink="/Dashboard">
                         <span class="menu-title">Profile</span>
                         <i class="fa fa-user menu-icon"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="#" routerLink="/Dashboard/List">
+                        <a class="nav-link" [routerLink]="['/Dashboard/List']">
                             <span class="menu-title">My publications</span>
                             <i class="fa fa-list-alt menu-icon"></i>
                         </a>
@@ -162,7 +162,7 @@
                     <li class="nav-item nav-profile dropdown">
                             <a href="#" class="nav-link">
                                     <div class="nav-profile-img">
-                                            <img src="http://localhost:9090/downloadFile/{{company.image}}" alt="image">
+                                            <img src="http://localhost:9091/downloadFile/{{company.image}}" alt="image">
                                             <span class="availability-status online"></span>
                                       <!--change to offline or busy as needed-->
                                     </div>

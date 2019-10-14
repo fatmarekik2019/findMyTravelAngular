@@ -217,6 +217,8 @@ console.log(Date.now())
       this.allDataAdd.latitude = res.results[0].geometry.lat;
       this.allDataAdd.longitude = res.results[0].geometry.lng;
       console.log(res.results[0].formatted);
+      console.log(this.allDataAdd.latitude);
+      console.log(this.allDataAdd.longitude);
 
     });
   }

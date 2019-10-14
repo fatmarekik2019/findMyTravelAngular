@@ -3,6 +3,7 @@ import { PublicationService } from '../../publication.service';
 import { SearchPipe } from 'src/app/search.pipe';
 import { ProfileService } from 'src/app/profile.service';
 import * as jwt_decode from "jwt-decode";
+import {  AuthGuardService as AuthGuard } from '../../auth-guard.service';
 
 @Component({
   selector: 'app-publication',
@@ -22,22 +23,31 @@ export class PublicationComponent implements OnInit {
   durationSearch: any;
   clientId: any;
   listeVote: any = [];
+  active : any;
+  isOpened: any;
+  role : any;
 
 
-  constructor(private publicationService: PublicationService, private profileService: ProfileService) { }
+  constructor(private authGuard:AuthGuard, private publicationService: PublicationService, private profileService: ProfileService) { }
 
   ngOnInit() {
+    //variable active pour tester authentification
+    this.active= this.authGuard.activate();
     //get clientId by userName by token
-    let decodedToken = localStorage.getItem('token');
-    let userName = jwt_decode(decodedToken)['sub'];
-    this.profileService.get(userName).subscribe((res: any) => {
-      this.clientId = res.id;
-      console.log(this.clientId);
-      //get ListeVote by clientId
-      this.publicationService.getListVote(this.clientId).subscribe((res2: any) => {
-        this.listeVote = res2;
+    if (localStorage.getItem('token')) {
+      let decodedToken = localStorage.getItem('token');
+      let userName = jwt_decode(decodedToken)['sub'];
+      this.profileService.get(userName).subscribe((res: any) => {
+        this.role = res.role;
+        this.clientId = res.id;
+        console.log(this.role);
+        //get ListeVote by clientId
+        this.publicationService.getListVote(this.clientId).subscribe((res2: any) => {
+          this.listeVote = res2;
+        });
       });
-    });
+    }
+
 
     //get ActivatedPublication
     this.publicationService.getActivatedPublication().subscribe((res: any) => {
@@ -71,6 +81,17 @@ export class PublicationComponent implements OnInit {
   }
 
   onClickVote(item) {
+    if (localStorage.getItem('token')) {
+      let decodedToken = localStorage.getItem('token');
+      let userName = jwt_decode(decodedToken)['sub'];
+      this.profileService.get(userName).subscribe((res: any) => {
+        this.clientId = res.id;
+        console.log(this.clientId);
+        //get ListeVote by clientId
+        this.publicationService.getListVote(this.clientId).subscribe((res2: any) => {
+          this.listeVote = res2;
+        });
+      });
 
     let data = {};
 
@@ -95,14 +116,26 @@ export class PublicationComponent implements OnInit {
 
     })
   }
-
-  isVote(item) {
-    if (this.listeVote.includes(item.id)) {
-      return true;
-    } else {
-      return false;
-    }
-
   }
 
+  isVote(item) {
+    if (localStorage.getItem('token')){
+      if (this.listeVote.includes(item.id)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  onClickCreate(){
+    if(this.isOpened != true)
+    {
+      this.isOpened = true;
+    }
+    else{
+      this.isOpened = false
+    }
+  }
+ 
 }
