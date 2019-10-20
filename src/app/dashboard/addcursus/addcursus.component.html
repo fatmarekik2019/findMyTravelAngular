@@ -11,7 +11,7 @@
             <div *ngFor="let publication of listActivePublication | filter: filterText">
                 <div class="card" style="cursor: pointer;" [ngStyle]="getMyStyles(publication)"
                     (click)="selection(publication)">
-                    <img class="card-img-top" src="http://localhost:9090/downloadFile/{{publication.listImage[0].link}}"
+                    <img class="card-img-top" src="http://localhost:9091/downloadFile/{{publication.listImage[0].link}}"
                         alt="card images">
 
                     <div class="card-body">

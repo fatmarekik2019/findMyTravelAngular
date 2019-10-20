@@ -12,6 +12,6 @@ export class ImageService {
    return this._http.post("http://localhost:9091/Image/addImage/"+id,data,{headers: this.header});
   }
   deleteImage(id){
-    return this._http.get("http://localhost:9090/Publication/clearImages/"+id,{headers: this.header});
+    return this._http.get("http://localhost:9091/Publication/clearImages/"+id,{headers: this.header});
   }
 }

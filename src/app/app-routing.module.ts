@@ -13,6 +13,11 @@ import { FrontComponent } from './front/front.component';
 import { HomeComponent } from './front/home/home.component';
 import { PublicationComponent } from './front/publication/publication.component';
 import { RegisterCComponent } from './register-c/register-c.component';
+import { AdminstatistiqueComponent } from './dashboard/adminstatistique/adminstatistique.component';
+import { AdminlistclientComponent } from './dashboard/adminlistclient/adminlistclient.component';
+import { AdminlistcompanyComponent } from './dashboard/adminlistcompany/adminlistcompany.component';
+import { AdminlistpublicationComponent } from './dashboard/adminlistpublication/adminlistpublication.component';
+import { AdminlistcursusComponent } from './dashboard/adminlistcursus/adminlistcursus.component';
 
 
 
@@ -41,6 +46,26 @@ const routes: Routes = [
               {
                 path:"ListCursus",
                 component : ListCursusComponent
+              },
+              {
+                path:"Statistique",
+                component : AdminstatistiqueComponent
+              },
+              {
+                path:"AdminListClient",
+                component : AdminlistclientComponent
+              },
+              {
+                path:"AdminListCompany",
+                component : AdminlistcompanyComponent
+              },
+              {
+                path:"AdminListPublication",
+                component : AdminlistpublicationComponent
+              }, 
+              {
+                path:"AdminListCursus",
+                component : AdminlistcursusComponent
               }
             ]
   },

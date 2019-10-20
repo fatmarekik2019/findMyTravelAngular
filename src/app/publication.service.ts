@@ -22,16 +22,16 @@ export class PublicationService {
   editPublication(id,data){
     console.log(id)
     console.log(data)
-    return this._http.post("http://localhost:9090/Publication/editPublication/"+id,data,{headers: this.header})
+    return this._http.post("http://localhost:9091/Publication/editPublication/"+id,data,{headers: this.header})
   }
   changeStatus(data){
-    return this._http.post("http://localhost:9090/Publication/changeStatus",data,{headers: this.header})
+    return this._http.post("http://localhost:9091/Publication/changeStatus",data,{headers: this.header})
   }
   deletePublication(data){
-    return this._http.post("http://localhost:9090/Publication/deletePublication",data,{headers: this.header})
+    return this._http.post("http://localhost:9091/Publication/deletePublication",data,{headers: this.header})
   }
   getAllActivePublication(){
-    return this._http.get("http://localhost:9090/Publication/getAll",{headers: this.header})
+    return this._http.get("http://localhost:9091/Publication/getAll",{headers: this.header})
   }
   getRecentPublication(){
     

@@ -61,6 +61,11 @@ import { ListCursusComponent } from './Dashboard/list-cursus/list-cursus.compone
 import { PublicationComponent } from './front/publication/publication.component';
 import { SearchPipe } from './search.pipe';
 import { FrontComponent } from './front/front.component';
+import { AdminstatistiqueComponent } from './dashboard/adminstatistique/adminstatistique.component';
+import { AdminlistclientComponent } from './dashboard/adminlistclient/adminlistclient.component';
+import { AdminlistcompanyComponent } from './dashboard/adminlistcompany/adminlistcompany.component';
+import { AdminlistpublicationComponent } from './dashboard/adminlistpublication/adminlistpublication.component';
+import { AdminlistcursusComponent } from './dashboard/adminlistcursus/adminlistcursus.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +84,12 @@ import { FrontComponent } from './front/front.component';
     ListCursusComponent,
     PublicationComponent,
     SearchPipe,
-    FrontComponent
+    FrontComponent,
+    AdminstatistiqueComponent,
+    AdminlistclientComponent,
+    AdminlistcompanyComponent,
+    AdminlistpublicationComponent,
+    AdminlistcursusComponent
   ],
   imports: [
     BrowserModule,
