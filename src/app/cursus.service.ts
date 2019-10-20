@@ -20,4 +20,7 @@ export class CursusService {
   editCursus(data){
     return this._http.post("http://localhost:9091/Cursus/update",data,{headers: this.header})
   }
+  getActivatedCursus(){
+    return this._http.get("http://localhost:9091/Cursus/getActivatedCursus")
+  }
 }

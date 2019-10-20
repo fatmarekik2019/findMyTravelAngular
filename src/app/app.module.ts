@@ -66,6 +66,10 @@ import { AdminlistclientComponent } from './dashboard/adminlistclient/adminlistc
 import { AdminlistcompanyComponent } from './dashboard/adminlistcompany/adminlistcompany.component';
 import { AdminlistpublicationComponent } from './dashboard/adminlistpublication/adminlistpublication.component';
 import { AdminlistcursusComponent } from './dashboard/adminlistcursus/adminlistcursus.component';
+import { CursusComponent } from './front/cursus/cursus.component';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { SearchCompanyPipe } from './search-company.pipe';
+
 
 @NgModule({
   declarations: [
@@ -85,11 +89,16 @@ import { AdminlistcursusComponent } from './dashboard/adminlistcursus/adminlistc
     PublicationComponent,
     SearchPipe,
     FrontComponent,
+<<<<<<< HEAD
     AdminstatistiqueComponent,
     AdminlistclientComponent,
     AdminlistcompanyComponent,
     AdminlistpublicationComponent,
     AdminlistcursusComponent
+=======
+    CursusComponent,
+    SearchCompanyPipe
+>>>>>>> d86dd53ce699c1da7dea050fc25da2f03ffc1f2e
   ],
   imports: [
     BrowserModule,
@@ -135,9 +144,13 @@ import { AdminlistcursusComponent } from './dashboard/adminlistcursus/adminlistc
     NoopAnimationsModule,
     SweetAlert2Module,
     Ng2SearchPipeModule
+   
 
   ],
-  providers: [],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

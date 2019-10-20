@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { ResetPasswordComponent} from './reset-password/reset-password.component';
@@ -12,36 +12,51 @@ import { ListCursusComponent } from './Dashboard/list-cursus/list-cursus.compone
 import { FrontComponent } from './front/front.component';
 import { HomeComponent } from './front/home/home.component';
 import { PublicationComponent } from './front/publication/publication.component';
+import { CursusComponent} from './front/cursus/cursus.component';
 import { RegisterCComponent } from './register-c/register-c.component';
+<<<<<<< HEAD
 import { AdminstatistiqueComponent } from './dashboard/adminstatistique/adminstatistique.component';
 import { AdminlistclientComponent } from './dashboard/adminlistclient/adminlistclient.component';
 import { AdminlistcompanyComponent } from './dashboard/adminlistcompany/adminlistcompany.component';
 import { AdminlistpublicationComponent } from './dashboard/adminlistpublication/adminlistpublication.component';
 import { AdminlistcursusComponent } from './dashboard/adminlistcursus/adminlistcursus.component';
+=======
+import {  AuthGuardService as AuthGuard } from './auth-guard.service';
+>>>>>>> d86dd53ce699c1da7dea050fc25da2f03ffc1f2e
 
 
 
 const routes: Routes = [
-  { path: "", component : LoginComponent},
+ 
+  {path: "", component: FrontComponent,
+children:[
+  {path: "", component: HomeComponent},
+  {path: "publications", component:PublicationComponent},
+  {path: "cursus", component:CursusComponent}
+]},
   {
     path:"Dashboard", 
     component: DashboardComponent, 
     children:[
               {
                 path:"",
-                component: ProfileComponent
+                component: ProfileComponent,
+                canActivate: [AuthGuard]
               },
               {
                 path:"List",
-                component: ListpublicationComponent
+                component: ListpublicationComponent,
+                canActivate: [AuthGuard]
               },
               {
                 path:"CompanyProfile",
-                component: CompanyprofileComponent
+                component: CompanyprofileComponent,
+                canActivate: [AuthGuard]
               },
               {
                 path:"AddCursus",
-                component: AddcursusComponent
+                component: AddcursusComponent,
+                canActivate: [AuthGuard]
               },
               {
                 path:"ListCursus",
@@ -66,18 +81,16 @@ const routes: Routes = [
               {
                 path:"AdminListCursus",
                 component : AdminlistcursusComponent
+                component : ListCursusComponent,
+                canActivate: [AuthGuard]
               }
             ]
   },
   { path: "user/confirm-reset/userName/:userName", component : ResetPasswordComponent},
   { path: "login", component : LoginComponent},
   { path: "registerClient", component : RegisterComponent},
-  { path : "registerCompany", component : RegisterCComponent},
-  {path: "", component: FrontComponent,
-children:[
-  {path: "home", component: HomeComponent},
-  {path: "publications", component:PublicationComponent}
-]}
+  { path : "registerCompany", component : RegisterCComponent}
+  
 ];
 
 @NgModule({

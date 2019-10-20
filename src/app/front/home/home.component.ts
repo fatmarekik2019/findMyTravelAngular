@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   result : any;
   ListPublicationMostVoted  : any;
   Modal : any;
+  ModalClient :  any;
   
   ngOnInit() {
 
@@ -21,7 +22,14 @@ export class HomeComponent implements OnInit {
       
       this.result = res;
       this.Modal=res;
+      res.forEach(element => {
+        this.ModalClient =element.client;
+        //console.log(this.ModalClient)
+      });
+      
+      
       console.log(this.result);
+      console.log(this.ModalClient)
     })
 
     //api pour afficher publication most voted
@@ -33,8 +41,10 @@ export class HomeComponent implements OnInit {
   }
   onClickReadMore(i){
     this.Modal = this.result[i];
+    this.ModalClient = this.result[i].client;
     console.log(this.Modal);
     
   }
+  
 
 }

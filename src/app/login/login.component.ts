@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
      console.log(res);
     localStorage.setItem('token', res.token);
     this.loginService.userName = this.loginService.decodeToken();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
       
      });
 

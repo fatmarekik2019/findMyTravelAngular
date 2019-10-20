@@ -35,11 +35,11 @@ export class PublicationService {
   }
   getRecentPublication(){
     
-    return this._http.get("http://localhost:9091/Publication/getRecentPublication", {headers : this.header});
+    return this._http.get("http://localhost:9091/Publication/getRecentPublication");
   }
   getActivatedPublication(){
     
-    return this._http.get("http://localhost:9091/Publication/getActivatedPublication", {headers : this.header});
+    return this._http.get("http://localhost:9091/Publication/getActivatedPublication");
   }
   votePublication(data, clientId, publicationId){
     return this._http.post("http://localhost:9091/Vote/votePublication/"+clientId+"/"+publicationId, data,{headers: this.header})
@@ -48,10 +48,10 @@ export class PublicationService {
     return this._http.get("http://localhost:9091/Vote/getListVote/"+clientId,{headers: this.header})
   }
   countVote(publicationId){
-    return this._http.get("http://localhost:9091/Vote/countVote/"+publicationId,{headers: this.header})
+    return this._http.get("http://localhost:9091/Vote/countVote/"+publicationId)
   }
   getPublicationMostVoted(){
-    return this._http.get("http://localhost:9091/Vote/getPublicationMostVoted",{headers: this.header})
+    return this._http.get("http://localhost:9091/Vote/getPublicationMostVoted")
   }
 
 }
