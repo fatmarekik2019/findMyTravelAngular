@@ -14,15 +14,12 @@ import { HomeComponent } from './front/home/home.component';
 import { PublicationComponent } from './front/publication/publication.component';
 import { CursusComponent} from './front/cursus/cursus.component';
 import { RegisterCComponent } from './register-c/register-c.component';
-<<<<<<< HEAD
 import { AdminstatistiqueComponent } from './dashboard/adminstatistique/adminstatistique.component';
 import { AdminlistclientComponent } from './dashboard/adminlistclient/adminlistclient.component';
 import { AdminlistcompanyComponent } from './dashboard/adminlistcompany/adminlistcompany.component';
 import { AdminlistpublicationComponent } from './dashboard/adminlistpublication/adminlistpublication.component';
 import { AdminlistcursusComponent } from './dashboard/adminlistcursus/adminlistcursus.component';
-=======
 import {  AuthGuardService as AuthGuard } from './auth-guard.service';
->>>>>>> d86dd53ce699c1da7dea050fc25da2f03ffc1f2e
 
 
 
@@ -80,8 +77,7 @@ children:[
               }, 
               {
                 path:"AdminListCursus",
-                component : AdminlistcursusComponent
-                component : ListCursusComponent,
+                component : AdminlistcursusComponent,
                 canActivate: [AuthGuard]
               }
             ]

@@ -89,16 +89,13 @@ import { SearchCompanyPipe } from './search-company.pipe';
     PublicationComponent,
     SearchPipe,
     FrontComponent,
-<<<<<<< HEAD
     AdminstatistiqueComponent,
     AdminlistclientComponent,
     AdminlistcompanyComponent,
     AdminlistpublicationComponent,
-    AdminlistcursusComponent
-=======
+    AdminlistcursusComponent,
     CursusComponent,
     SearchCompanyPipe
->>>>>>> d86dd53ce699c1da7dea050fc25da2f03ffc1f2e
   ],
   imports: [
     BrowserModule,
