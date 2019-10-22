@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../register.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   });
   result = false;
   currentPasswordStrength : any;
-  constructor(private registerService: RegisterService) { }
+  constructor(private registerService: RegisterService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,7 @@ export class RegisterComponent implements OnInit {
     console.log( this.registerClient.value);
     this.registerService.registerClient(this.registerClient.value).subscribe( (res: any)=>{
       console.log(res);
+      this.router.navigate(['/login']);
     });
   }
   

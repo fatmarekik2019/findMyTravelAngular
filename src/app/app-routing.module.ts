@@ -15,7 +15,8 @@ import { PublicationComponent } from './front/publication/publication.component'
 import { CursusComponent} from './front/cursus/cursus.component';
 import { RegisterCComponent } from './register-c/register-c.component';
 import {  AuthGuardService as AuthGuard } from './auth-guard.service';
-
+import { AuthGuardClientService as AuthGuardClient } from './auth-guard-client.service';
+import { AuthGuardCompanyService as AuthGuardCompany} from './auth-guard-company.service';
 
 
 const routes: Routes = [
@@ -43,7 +44,7 @@ children:[
               {
                 path:"CompanyProfile",
                 component: CompanyprofileComponent,
-                canActivate: [AuthGuard]
+                canActivate: [AuthGuard, AuthGuardCompany]
               },
               {
                 path:"AddCursus",

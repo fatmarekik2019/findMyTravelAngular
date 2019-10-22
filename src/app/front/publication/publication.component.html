@@ -29,22 +29,22 @@
                                 class="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
                                 <div
                                     class="search_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/suitcase.png" alt=""><span>hotels</span></div>
+                                    <img src="../../../assets/images/suitcase.png" alt=""><span>hotels</span></div>
                                 <div
                                     class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/bus.png" alt="">car rentals</div>
+                                    <img src="../../../assets/images/bus.png" alt="">car rentals</div>
                                 <div
                                     class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/departure.png" alt="">flights</div>
+                                    <img src="../../../assets/images/departure.png" alt="">flights</div>
                                 <div
                                     class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/island.png" alt="">trips</div>
+                                    <img src="../../../assets/images/island.png" alt="">trips</div>
                                 <div
                                     class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/cruise.png" alt="">cruises</div>
+                                    <img src="../../../assets/images/cruise.png" alt="">cruises</div>
                                 <div
                                     class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/diving.png" alt="">activities</div>
+                                    <img src="../../../assets/images/diving.png" alt="">activities</div>
                             </div>
                         </div>
 
@@ -198,7 +198,7 @@
                                         <div class="text-center offer_reviews_rating" *ngIf="active && role=='client'"><i
                                             class="fa fa-heart" alt="vote" [ngStyle]="{'color': (isVote(item) ? '#fa9e1b' : 'grey')}" (click)="onClickVote(item)"></i>
                                     </div>
-                                        <div class="text-center offer_reviews_rating" *ngIf="!active && role=='client'"><a href="" data-toggle="modal" data-target="#exampleModal-4"><i
+                                        <div class="text-center offer_reviews_rating" *ngIf="!active"><a href="" data-toggle="modal" data-target="#exampleModal-4"><i
                                                 class="fa fa-heart" alt="vote" [ngStyle]="{'color': (isVote(item) ? '#fa9e1b' : 'grey')}" (click)="onClickVote(item)"></i></a>
                                         </div>
                                         <div class="modal demo-modal" id="exampleModal-4">
