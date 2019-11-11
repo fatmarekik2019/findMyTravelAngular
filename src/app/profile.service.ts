@@ -25,7 +25,7 @@ export class ProfileService {
     return this._http.post('http://localhost:9091/uploadFile/'+id,file,{headers: this.header});
   }
   updateCompanyProfile(data){
-    return this._http.post("http://localhost:9090/Company/update",data,{headers: this.header});
+    return this._http.post("http://localhost:9091/Company/update",data,{headers: this.header});
   }
 }
   

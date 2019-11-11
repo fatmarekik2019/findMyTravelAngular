@@ -52,6 +52,7 @@ export class AddcursusComponent implements OnInit, DoCheck {
     this.dataCursus.setValue({ departDate: Date.now() })
   }
 
+ 
   checkEmpty() {
     if (this.listPublicationSelected.length > 0) {
       this.isEmpty = false;

@@ -247,7 +247,7 @@ console.log(Date.now())
     this.dataPublication.patchValue({ description: publication.description, cost: publication.cost, duration: publication.duration });
     console.log(this.dataPublication.value)
     publication.listImage.forEach(element => {
-      this.http.get("http://localhost:9090/downloadFile/" + element.link, { responseType: "blob" }).subscribe(res => {
+      this.http.get("http://localhost:9091/downloadFile/" + element.link, { responseType: "blob" }).subscribe(res => {
         console.log(res);
         let file = this.blobToFile(res, element.link);
         let fileItem = new FileItem(this.uploader, file, {});

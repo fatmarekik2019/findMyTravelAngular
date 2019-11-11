@@ -61,6 +61,11 @@ import { ListCursusComponent } from './Dashboard/list-cursus/list-cursus.compone
 import { PublicationComponent } from './front/publication/publication.component';
 import { SearchPipe } from './search.pipe';
 import { FrontComponent } from './front/front.component';
+import { AdminstatistiqueComponent } from './dashboard/adminstatistique/adminstatistique.component';
+import { AdminlistclientComponent } from './dashboard/adminlistclient/adminlistclient.component';
+import { AdminlistcompanyComponent } from './dashboard/adminlistcompany/adminlistcompany.component';
+import { AdminlistpublicationComponent } from './dashboard/adminlistpublication/adminlistpublication.component';
+import { AdminlistcursusComponent } from './dashboard/adminlistcursus/adminlistcursus.component';
 import { CursusComponent } from './front/cursus/cursus.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { SearchCompanyPipe } from './search-company.pipe';
@@ -84,6 +89,11 @@ import { SearchCompanyPipe } from './search-company.pipe';
     PublicationComponent,
     SearchPipe,
     FrontComponent,
+    AdminstatistiqueComponent,
+    AdminlistclientComponent,
+    AdminlistcompanyComponent,
+    AdminlistpublicationComponent,
+    AdminlistcursusComponent,
     CursusComponent,
     SearchCompanyPipe
   ],
